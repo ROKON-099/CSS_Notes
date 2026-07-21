@@ -378,3 +378,249 @@ p {
 
 ---
 
+## Advantages
+
+- Reusable
+- Easy to maintain
+- Better performance through browser caching
+- Best practice for real-world projects
+
+---
+
+## Disadvantages
+
+- Requires an additional file
+- Styles won't load if the CSS file path is incorrect
+
+---
+
+# CSS Selectors
+
+## Definition
+
+A **CSS Selector** is used to target HTML elements that you want to style.
+
+Example:
+
+```css
+h1 {
+    color: blue;
+}
+```
+
+Here, `h1` is the selector.
+
+---
+
+## Common Selectors
+
+| Selector | Example | Description |
+|----------|---------|-------------|
+| Universal | `*` | Selects all elements |
+| Element | `p` | Selects all `<p>` elements |
+| Class | `.box` | Selects elements with class `box` |
+| ID | `#title` | Selects an element with ID `title` |
+| Group | `h1, p` | Selects multiple elements |
+| Descendant | `div p` | Selects paragraphs inside a div |
+| Child | `div > p` | Selects direct child paragraphs |
+| Adjacent Sibling | `h1 + p` | Selects the first paragraph after `h1` |
+| General Sibling | `h1 ~ p` | Selects all paragraphs after `h1` |
+| Attribute | `input[type="text"]` | Selects elements by attribute |
+
+---
+
+# CSS Specificity
+
+## Definition
+
+**Specificity** determines which CSS rule is applied when multiple rules target the same element.
+
+The browser gives higher priority to more specific selectors.
+
+---
+
+## Priority Order
+
+1. Inline CSS
+2. ID Selector
+3. Class, Attribute, Pseudo-class
+4. Element Selector
+5. Universal Selector
+
+---
+
+## Example
+
+```css
+p {
+    color: blue;
+}
+
+.text {
+    color: green;
+}
+
+#title {
+    color: red;
+}
+```
+
+```html
+<p id="title" class="text">Hello</p>
+```
+
+### Output
+
+The text becomes **red** because the ID selector has higher specificity.
+
+---
+
+# CSS Cascade
+
+## Definition
+
+The **Cascade** is the process the browser uses to decide which CSS rule should be applied when multiple rules match the same element.
+
+The decision is based on:
+
+- Importance (`!important`)
+- Specificity
+- Source order
+
+---
+
+## Example
+
+```css
+p {
+    color: blue;
+}
+
+p {
+    color: red;
+}
+```
+
+### Output
+
+The paragraph becomes **red** because the second rule appears later in the stylesheet.
+
+---
+
+## Example with `!important`
+
+```css
+p {
+    color: blue !important;
+}
+
+p {
+    color: red;
+}
+```
+
+### Output
+
+The paragraph remains **blue** because `!important` overrides the normal rule.
+
+> **Best Practice:** Avoid overusing `!important`. It makes CSS harder to maintain.
+
+---
+
+# CSS Inheritance
+
+## Definition
+
+**Inheritance** means some CSS properties are automatically passed from a parent element to its child elements.
+
+Not every CSS property is inherited.
+
+---
+
+## Example
+
+### HTML
+
+```html
+<div>
+    <p>Hello World</p>
+</div>
+```
+
+### CSS
+
+```css
+div {
+    color: blue;
+}
+```
+
+### Output
+
+The paragraph also becomes **blue** because the `color` property is inherited.
+
+---
+
+## Common Inherited Properties
+
+- color
+- font-family
+- font-size
+- font-style
+- font-weight
+- line-height
+- text-align
+- visibility
+
+---
+
+## Common Non-Inherited Properties
+
+- margin
+- padding
+- border
+- width
+- height
+- background
+- display
+- position
+
+---
+
+## Using `inherit`
+
+```css
+button {
+    color: inherit;
+}
+```
+
+The button inherits the text color from its parent element.
+
+---
+
+# Summary
+
+| Topic | Description |
+|--------|-------------|
+| What is CSS? | Styles and designs HTML documents |
+| Why CSS? | Improves appearance, layout, and responsiveness |
+| CSS Syntax | Selector + Property + Value |
+| CSS Comments | Notes ignored by the browser |
+| CSS Types | Inline, Internal, External |
+| CSS Selectors | Target HTML elements for styling |
+| CSS Specificity | Determines which rule has higher priority |
+| CSS Cascade | Resolves conflicts between multiple CSS rules |
+| CSS Inheritance | Passes certain styles from parent to child elements |
+
+---
+
+# Best Practices
+
+- Use **External CSS** for real-world projects.
+- Prefer **class selectors** over ID selectors for styling.
+- Keep selectors simple and readable.
+- Avoid excessive use of `!important`.
+- Organize CSS with comments and consistent formatting.
+- Write reusable and maintainable CSS rules.
+- Understand specificity and the cascade to avoid unexpected styling conflicts.
